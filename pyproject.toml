@@ -2,7 +2,7 @@
 name = "news-summaries"
 version = "0.1.0"
 description = "AI-powered news summarization service"
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 dependencies = [
     "openai>=1.50.0",
     "feedparser>=6.0.0",
@@ -22,7 +22,7 @@ dev = [
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W"]

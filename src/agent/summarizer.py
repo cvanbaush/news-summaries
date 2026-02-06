@@ -1,5 +1,7 @@
 """AI-powered article summarization."""
 
+from typing import List
+
 from openai import OpenAI
 
 from src.models import Article
@@ -29,7 +31,7 @@ Content: {article.content or 'No content available'}"""
 
         return response.choices[0].message.content
 
-    def summarize_batch(self, articles: list[Article]) -> list[Article]:
+    def summarize_batch(self, articles: List[Article]) -> List[Article]:
         """Summarize a batch of articles."""
         for article in articles:
             if article.content:

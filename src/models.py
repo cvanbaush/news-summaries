@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from enum import Enum
+from typing import Dict, List, Optional
 
 from pydantic import BaseModel, HttpUrl
 
@@ -19,9 +20,9 @@ class Article(BaseModel):
     url: HttpUrl
     source: str
     category: Category
-    published: datetime | None = None
-    content: str | None = None
-    summary: str | None = None
+    published: Optional[datetime] = None
+    content: Optional[str] = None
+    summary: Optional[str] = None
 
     def __hash__(self) -> int:
         return hash(self.url)
@@ -31,7 +32,7 @@ class NewsDigest(BaseModel):
     """A collection of summarized articles."""
 
     generated_at: datetime
-    articles: dict[Category, list[Article]]
+    articles: Dict[Category, List[Article]]
 
     @property
     def total_articles(self) -> int:

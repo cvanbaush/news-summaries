@@ -1,6 +1,6 @@
 """Markdown output formatter."""
 
-from datetime import datetime
+from typing import Optional
 
 from src.models import Category, NewsDigest
 
@@ -14,7 +14,7 @@ class MarkdownFormatter:
         Category.LOCAL: "Local News",
     }
 
-    def format(self, digest: NewsDigest, intro: str | None = None) -> str:
+    def format(self, digest: NewsDigest, intro: Optional[str] = None) -> str:
         """Format a news digest as Markdown."""
         lines = [
             f"# News Digest",
