@@ -1,0 +1,16 @@
+# Application settings
+
+summarization:
+  model: "gpt-4o-mini"
+  max_articles_per_category: 10
+  summary_style: "concise"  # concise, detailed, bullet_points
+
+output:
+  format: "markdown"  # markdown, html, plain
+  include_sources: true
+  max_summary_length: 200  # words per article
+
+schedule:
+  # For future cron/scheduler integration
+  frequency: "daily"
+  time: "07:00"

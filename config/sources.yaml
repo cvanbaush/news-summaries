@@ -1,0 +1,21 @@
+# News sources configuration
+
+# NewsAPI settings
+newsapi:
+  # Categories map to NewsAPI's category parameter
+  # Available: business, entertainment, general, health, science, sports, technology
+  categories:
+    world:
+      category: "general"
+      # Use 'everything' endpoint with query instead of top-headlines
+      # query: "world news"
+    national:
+      category: "general"
+      country: "us"
+    local:
+      # For local news, use 'everything' endpoint with a location query
+      query: "San Francisco"  # Change to your city
+      enabled: false
+
+  # Number of articles to fetch per category
+  page_size: 10
