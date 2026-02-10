@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 
 from src.agent import Summarizer
 from src.config import settings
+from src.dedup import deduplicate_articles
 from src.models import Category, NewsDigest
 from src.output import MarkdownFormatter
 from src.sources import NewsAPIFetcher
@@ -58,6 +59,11 @@ def main():
 
     total = sum(len(a) for a in articles.values())
     print(f"Found {total} articles")
+
+    # Deduplicate across categories
+    articles = deduplicate_articles(articles)
+    deduped_total = sum(len(a) for a in articles.values())
+    print(f"After deduplication: {deduped_total} unique articles")
 
     # Limit articles per category
     max_per_category = 5
